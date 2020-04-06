@@ -7,4 +7,21 @@
 Затем необходимо подключиться с аккаунта администратора (далее будет использоваться имя пользователя: admin) через SSH. 
 Вы окажетесь в директории /home/admin.
 На сервере должен быть установлен python3 (а также pip3). Установка с помощью команды apt.
-Далее должны быть установлены необходимые python модули с помощью команды apt.
+Далее должны быть установлены необходимые python модули с помощью команды pip3:
+* flask
+* flask_wtf
+* wtforms
+* wtforms.validators
+* wtforms.fields.html5
+* vk_api
+* json
+* numpy 
+* datetime
+* time
+* vk_api.execute
+* configparser
+* logging
+* matplotlib.pyplot 
+* mpld3
+* pandas
+* prettytable
