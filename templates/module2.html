@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>VkAnalytics</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+  <script src="https://kit.fontawesome.com/0a5bd91fba.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Raleway:400,300,700,900" rel="stylesheet">
+
+
+  <link href="https://raw.githack.com/AlexanderGroshev/VkAnalytics/master/main.css" rel="stylesheet">
+
+
+
+  <style>
+   .stroke {
+    font: 2em Arial, sans-serif;
+    text-shadow: black 0 0 8px;
+   }
+  </style>
+
+</head>
+
+<body>
+
+<nav class="navbar fixed-top navbar-dark" style="background-color: #141617;">
+<div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="home">VkAnalytics</a>
+      </div>
+      <div class="nav navbar-nav">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="home">HOME</a>
+          </li>
+          <li><a href="team">TEAM</a>
+          </li>
+        </ul>
+      </div>
+</div>
+</nav>
+
+
+
+
+
+<form method="POST" action =""{{ url_for('module2') }} " >
+      {{ module2.csrf_token }}
+      {{ module2.group_id.label }}
+      {{ module2.group_id }}
+               <input type ="submit" value="Submit">
+
+  <div id="btm">
+    <div class="container">
+      <div class="ttt">
+        Проект 19277 Статистический анализ аккаунтов в социальных сетях
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
