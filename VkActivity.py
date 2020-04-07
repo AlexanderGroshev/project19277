@@ -65,6 +65,30 @@ get_wall_from = VkFunction(args=('u', 's', 'f'), code='''
 #                                  начало интервала, конец интервала и сессия вк
 # Возвращает массив дат лайков
 def get_likes(id, user_id, posts_id, posts_date, start, finish, vk_session):
+    """
+    Возвращает массив дат лайков пользователя в группе с идентификатором id
+    
+    :type id: int
+    :param id: id группы
+    
+    :type user_id: int
+    :param user_id: id пользователя
+    
+    :type posts_id: array
+    :param posts_id: массив id постов, подоходящих под заданный временной промежуток
+    
+    :type posts_date: array
+    :param posts_date: массив дат постов из posts_id
+    
+    :type start: int
+    :param start: начало временного интервала в формате strptime
+    
+    :type finish: int
+    :param finish: конец временного интервала в формате strptime
+    
+    :param vk_session: сессия Вконтакте
+    
+    """
     tools = vk_api.VkTools(vk_session)
     like_date = []
 
@@ -96,6 +120,29 @@ def get_likes(id, user_id, posts_id, posts_date, start, finish, vk_session):
 #                                  начало интервала, конец интервала и сессия вк
 # Возвращает массив дат лайков
 def get_likes_self(user_id, posts_id, posts_date, posts_from, start, finish, vk_session):
+    
+    """
+    Возвращает массив дат лайков пользователя на своей странице
+    
+
+    :type user_id: int
+    :param user_id: id пользователя
+    
+    :type posts_id: array
+    :param posts_id: массив id постов, подоходящих под заданный временной промежуток
+    
+    :type posts_date: array
+    :param posts_date: массив дат постов из posts_id
+    
+    :type start: int
+    :param start: начало временного интервала в формате strptime
+    
+    :type finish: int
+    :param finish: конец временного интервала в формате strptime
+    
+    :param vk_session: сессия Вконтакте
+    
+    """
     tools = vk_api.VkTools(vk_session)
     like_date = []
     post_date = []
@@ -124,6 +171,32 @@ def get_likes_self(user_id, posts_id, posts_date, posts_from, start, finish, vk_
 
 
 def get_comments(id, user_id, posts_id, posts_date, start, finish, vk_session):
+    
+    """
+    Возвращает массив дат комментариев пользователя и массив лайков на комментариях в группе с идентификатором id
+    
+    :type id: int
+    :param id: id группы
+    
+    :type user_id: int
+    :param user_id: id пользователя
+    
+    :type posts_id: array
+    :param posts_id: массив id постов, подоходящих под заданный временной промежуток
+    
+    :type posts_date: array
+    :param posts_date: массив дат постов из posts_id
+    
+    :type start: int
+    :param start: начало временного интервала в формате strptime
+    
+    :type finish: int
+    :param finish: конец временного интервала в формате strptime
+    
+    :param vk_session: сессия Вконтакте
+    
+    """
+    
     tools = vk_api.VkTools(vk_session)
     like_date = []
     com_date = []
@@ -166,6 +239,29 @@ def get_comments(id, user_id, posts_id, posts_date, start, finish, vk_session):
 
 
 def get_comments_self(user_id, posts_id, posts_date, start, finish, vk_session):
+    
+    """
+    Возвращает массив дат комментариев и постов пользователя и лайков комментариев на своей странице
+    
+    :type user_id: int
+    :param user_id: id пользователя
+    
+    :type posts_id: array
+    :param posts_id: массив id постов, подоходящих под заданный временной промежуток
+    
+    :type posts_date: array
+    :param posts_date: массив дат постов из posts_id
+    
+    :type start: int
+    :param start: начало временного интервала в формате strptime
+    
+    :type finish: int
+    :param finish: конец временного интервала в формате strptime
+    
+    :param vk_session: сессия Вконтакте
+    
+    """
+    
     tools = vk_api.VkTools(vk_session)
     like_date = []
     com_date = []
@@ -204,6 +300,23 @@ def get_comments_self(user_id, posts_id, posts_date, start, finish, vk_session):
 
 
 def act_graph(likes, comments, start_date, end_date):
+    
+     """
+    Возвращает html код графика зависимости количества лайков и комментариев от дат
+    
+    :type likes: array 
+    :param likes: массив лайков пользователя
+    
+    :type comments: array
+    :param user_id: id пользователя
+       
+    :type start_date: int
+    :param start_date: начало временного интервала в формате strptime
+    
+    :type end_date: int
+    :param end_date: конец временного интервала в формате strptime
+    
+    """
     y = Counter(likes)
     y_ = Counter(comments) 
     z = []
