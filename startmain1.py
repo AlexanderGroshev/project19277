@@ -30,18 +30,30 @@ class selectm(FlaskForm):
         ("poisk", "Поиск в сообществе")])
 
 class Compare(FlaskForm):
+    """
+    Данный класс отвечает за ввод ID пользователей для их сравнения
+    """
     ids = StringField('Введите ID пользователей через запятую')
 
 class DateForm(FlaskForm):
+    """
+    Данный класс отвечает за ввод ID пользователя, ID групп и временного промежутка для получения активности
+    """
     user_id = StringField('User_id')
     group_id = StringField('Введите id групп')
     from_ = DateField('Введите дату начала', format = '%Y-%m-%d')
     to_ = DateField('Введите дату конца', format = '%Y-%m-%d')
 
 class Clust(FlaskForm):
+    """
+    Данный класс отвечает за ввод ID группы для анализа"
+    """
     group_id = StringField('ID группы')
 
 class Categ(FlaskForm):
+    """
+    Данный класс отвечает за ввод ID группы и выбор параметров для поиска по сообществу
+    """
     group_id = StringField('ID группы')
     sex = SelectField("Пол: ", choices=[
         ("0", "Не важно"), 
@@ -61,15 +73,24 @@ app.config['SECRET_KEY'] = 'amaya'
 
 @app.route('/home', methods = ['GET', 'POST'])
 def home():
+    """
+    Функция возвращает шаблон home.html при переходе по адресу /home
+    """
     return render_template('home.html')
 
 
 @app.route('/team',methods = ['GET', 'POST'])
 def team():
+    """
+    Функция возвращает шаблон team.html при переходе по адресу /team
+    """
     return render_template('team.html')
 
 @app.route('/module1', methods = ['GET', 'POST'])
 def module1():
+    """
+    Функция возвращает шаблон module1.html при переходе по адресу /module1
+    """
     module1 = DateForm()
     if module1.validate_on_submit():
         ##flash '<h1> {} {} {}'.format(form.user_id.data, form.from_.data, form.to_.data)
@@ -84,6 +105,9 @@ def module1():
         to = str(to_)
 
         def auth():
+            """
+            Функция авторизации Вконтакте
+            """
             conf = configparser.RawConfigParser()
             conf.read("Authorization_vk.ini")
             login = conf.get('Authorization', 'login')
@@ -174,6 +198,9 @@ def module1():
 
 @app.route('/module2', methods = ['GET', 'POST'])
 def module2():
+    """
+    Функция возвращает шаблон module2.html при переходе по адресу /module2
+    """
     module2 = Clust()
     if module2.validate_on_submit():
         group_id = module2.group_id.data
@@ -184,6 +211,9 @@ def module2():
 
 @app.route('/module3', methods = ['GET', 'POST'])
 def module3():
+    """
+    Функция возвращает шаблон module3.html при переходе по адресу /module3
+    """
     module3 = Compare()
     if module3.validate_on_submit():
         ##flash '<h1> {} {} {}'.format(form.user_id.data, form.from_.data, form.to_.data)
@@ -224,6 +254,9 @@ def module3():
 
 @app.route('/module4', methods = ['GET', 'POST'])
 def module4():
+    """
+    Функция возвращает шаблон module4.html при переходе по адресу /module4
+    """
     module4 = Categ()
     if module4.validate_on_submit():
         dictionary = {'sex': None, 'age_to': None, 'age_from': None, 'city': None, 'country': None, 5: 25, 'q': None}
