@@ -26,7 +26,10 @@
 * matplotlib.pyplot 
 * mpld3
 * pandas
-* prettytable
+* prettytable  
+
+### Структура  
+![](https://trello-attachments.s3.amazonaws.com/5da6e9e7285c2c56c01735af/5e9061576271c03746e8b1a0/d0201af8e1bebad6962e776effe0b7be/image0.jpg)
 
 ### Сервер
 Домашняя директория проекта: **/home/admin**. В случае данного проекта эта директория /home/ayugroshev/.  
